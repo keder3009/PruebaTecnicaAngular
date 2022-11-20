@@ -1,0 +1,40 @@
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Prueba Angular</a>
+    <button
+      class="btn btn-warning"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Agregar Correo
+    </button>
+  </div>
+</nav>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <span>Se debe agregar uno o mas correos a donde quiere recibir la notificacion cuando se realiza una publicación</span>
+        <form [formGroup]="data" (ngSubmit)="addEmail()">
+          <div>
+            <label class="form-label">Titulo</label>
+            <input formControlName="correo" type="email" class="form-control" />
+          </div>
+          <div class="d-grid gap-2 mt-3">
+            <button class="btn btn-primary">Agregar</button>
+          </div>
+          <div *ngIf="added" class="alert alert-success mt-3" role="alert">
+            Se agrego un correo
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
